@@ -7,6 +7,6 @@ export class GithubController {
 
     @Get('commits')
     async getCommits(@Query('url') url: string) {
-        return this.githubService.getCommits(url);
+        return this.githubService.executeUseCase(url);
     }
 }

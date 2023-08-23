@@ -20,7 +20,7 @@ let GithubController = exports.GithubController = class GithubController {
         this.githubService = githubService;
     }
     async getCommits(url) {
-        return this.githubService.getCommits(url);
+        return this.githubService.executeUseCase(url);
     }
 };
 __decorate([

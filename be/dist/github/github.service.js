@@ -18,6 +18,15 @@ let GithubService = exports.GithubService = class GithubService {
         this.httpService = httpService;
         this.baseUrl = "https://api.github.com/repos/";
     }
+    executeUseCase(url) {
+        return this.getCommits(url).pipe((0, operators_1.map)(commits => commits.map(commit => ({
+            commit: {
+                author: commit.commit.author,
+                message: commit.commit.message,
+            },
+            commitUrl: commit.url,
+        }))));
+    }
     getCommits(url) {
         const commitUrl = this.baseUrl + url + "/commits";
         return this.httpService.get(commitUrl).pipe((0, operators_1.map)((response) => {

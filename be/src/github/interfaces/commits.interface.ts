@@ -1,10 +1,18 @@
-interface GithubResponse {
+export interface GithubResponse {
     sha: string;
     node_id: string;
     commit: Commit;
     url: string;
     html_url: string;
     comments_url: string;
+}
+
+export interface ParsedResponse {
+    commit: {
+        author: Author;
+        message: string;
+    };
+    commitUrl: string;
 }
 
 interface Commit {

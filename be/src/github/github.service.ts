@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { GithubResponse, ParsedResponse } from './interfaces/commits.interface';
 
 @Injectable()
 export class GithubService {
@@ -12,7 +13,20 @@ export class GithubService {
         this.baseUrl = "https://api.github.com/repos/";
     }
 
-    getCommits(url: string): Observable<any> {
+    public executeUseCase(url: string): Observable<ParsedResponse[]> {
+        return this.getCommits(url).pipe(
+            map(commits => commits.map(commit => ({
+                commit: {
+                    author: commit.commit.author,
+                    message: commit.commit.message,
+                },
+                commitUrl: commit.url,
+            }))),
+        );
+    }
+
+
+    private getCommits(url: string): Observable<GithubResponse[]> {
         const commitUrl = this.baseUrl + url + "/commits";
         return this.httpService.get(commitUrl).pipe(
             map((response: AxiosResponse) => {
