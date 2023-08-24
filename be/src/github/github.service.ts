@@ -20,6 +20,7 @@ export class GithubService {
                     author: commit.commit.author,
                     message: commit.commit.message,
                 },
+                hash: commit.sha,
                 commitUrl: commit.html_url,
                 avatarUrl: commit.author.avatar_url,
             }))),

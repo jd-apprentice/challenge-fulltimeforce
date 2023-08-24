@@ -1,10 +1,10 @@
 export function CommitHistory(props: Commit) {
-
-    console.log("props", props.commits)
+    const hashSize = 7;
+    const titlePage = "Commit History";
 
     return (
         <>
-            <h1 className="text-2xl font-semibold mb-4">Commit History</h1>
+            <h1 className="text-2xl font-semibold mb-4">{titlePage}</h1>
             <ul className="space-y-4">
                 {props.commits.map((commit, index) => (
                     <li
@@ -16,7 +16,7 @@ export function CommitHistory(props: Commit) {
                         </div>
                         <div className="flex-grow">
                             <p className="font-semibold">{commit.commit.message}</p>
-                            <p className="text-gray-500">{ } - {commit.commitUrl}</p>
+                            <p className="text-gray-500">{commit.hash.slice(0, hashSize)} - {commit.commitUrl}</p>
                             <p className="text-gray-500">
                                 {commit.commit.author.name} - {commit.commit.author.email}
                             </p>

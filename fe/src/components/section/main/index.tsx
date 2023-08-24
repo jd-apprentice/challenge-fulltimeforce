@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { CommitHistory } from "@/components/commits/CommitHistory";
 import { GithubService } from "@/services/github"
+import { config } from "@/config/config";
 
 export function Home() {
     const [commits, setCommits] = useState<CommitHistory[]>([]);
-
-    const repository = "jd-apprentice/challenge-fulltimeforce"
-
     useEffect(() => {
-        GithubService.getCommits(repository)
+        GithubService.getCommits(config.repository)
             .then((commits) => setCommits(commits))
             .catch((err: any) => console.error(err));
     }, []);

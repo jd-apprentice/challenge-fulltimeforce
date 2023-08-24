@@ -1,4 +1,5 @@
 interface CommitHistory {
+    hash: string;
     commit: {
         author: Author;
         message: string;
