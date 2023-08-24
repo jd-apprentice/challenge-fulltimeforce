@@ -1,3 +1,5 @@
+## Manual workflow for the project
+
 install: frontend backend
 
 execute:
@@ -14,3 +16,8 @@ launch_be:
 
 launch_fe:
 	$(MAKE) execute path=fe command=preview
+
+## Docker workflow for the project
+
+compose:
+	cd infra && docker compose up -d || docker-compose up -d

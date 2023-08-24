@@ -5,6 +5,7 @@ export interface GithubResponse {
     url: string;
     html_url: string;
     comments_url: string;
+    author: AuthorDetail;
 }
 
 export interface ParsedResponse {
@@ -13,6 +14,7 @@ export interface ParsedResponse {
         message: string;
     };
     commitUrl: string;
+    avatarUrl: string;
 }
 
 interface Commit {
@@ -29,6 +31,10 @@ interface Author {
     name: string;
     email: string;
     date: string;
+}
+
+interface AuthorDetail extends Author {
+    avatar_url: string;
 }
 
 interface Tree {

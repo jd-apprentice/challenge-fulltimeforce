@@ -1,11 +1,7 @@
+import { Home } from "./components/section/main";
+
 function App() {
-    return (
-        <>
-            <p>
-                Sample
-            </p>
-        </>
-    )
+    return <Home />
 }
 
 export default App

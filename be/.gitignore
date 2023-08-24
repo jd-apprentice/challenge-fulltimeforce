@@ -16,7 +16,7 @@ node_modules/
 [._]sw[a-p]
 
 # bundle
-/dist
+dist
 packages/**/*.d.ts
 packages/**/*.js
 
