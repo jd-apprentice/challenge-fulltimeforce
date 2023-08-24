@@ -16,7 +16,7 @@ export function CommitHistory(props: Commit) {
                         </div>
                         <div className="flex-grow">
                             <p className="font-semibold">{commit.commit.message}</p>
-                            <p className="text-gray-500">{commit.hash.slice(0, hashSize)} - {commit.commitUrl}</p>
+                            <p className="text-gray-500">{commit.hash.slice(0, hashSize)} - <a target="_blank">{commit.commitUrl}</a></p>
                             <p className="text-gray-500">
                                 {commit.commit.author.name} - {commit.commit.author.email}
                             </p>

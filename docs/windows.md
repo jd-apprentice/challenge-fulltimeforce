@@ -10,6 +10,7 @@ npm run start
 ## In another terminal
 cd fe
 npm install
+npm run build
 npm run preview
 ```
 

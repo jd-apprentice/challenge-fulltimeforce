@@ -5,7 +5,7 @@ services:
     build:
       context: ../fe
       dockerfile: ../infra/images/fe.Dockerfile
-    restart: always
+    restart: unless-stopped
     ports:
       - 4173:4173
 
@@ -14,6 +14,6 @@ services:
     build:
       context: ../be
       dockerfile: ../infra/images/be.Dockerfile
-    restart: always
+    restart: unless-stopped
     ports:
       - 3000:3000

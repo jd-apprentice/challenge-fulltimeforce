@@ -11,10 +11,16 @@ frontend:
 backend:
 	$(MAKE) execute path=be command=install
 
-launch_be:
+build_be:
+	$(MAKE) execute path=be command=build
+
+build_fe:
+	$(MAKE) execute path=fe command=build
+
+launch_be: build_be
 	$(MAKE) execute path=be command=start
 
-launch_fe:
+launch_fe: build_fe
 	$(MAKE) execute path=fe command=preview
 
 ## Docker workflow for the project
