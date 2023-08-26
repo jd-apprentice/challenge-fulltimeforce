@@ -33,3 +33,6 @@ test_fe:
 
 compose:
 	cd infra && docker compose up -d || docker-compose up -d
+
+compose_build:
+	cd infra && docker compose up -d --build || docker-compose up -d --build

@@ -7,7 +7,7 @@ services:
       dockerfile: ../infra/images/fe.Dockerfile
     restart: unless-stopped
     ports:
-      - 4173:4173
+      - 4500:4500
 
   backend:
     container_name: backend
