@@ -28,5 +28,8 @@ The goal of this test will be to create an app that shows git commit history on 
 
 1. Docker
 
+## Documentation 📖
+
 - For windows users check [docs/windows](./docs/windows.md)
 - For linux users check [docs/linux](./docs/linux.md)
+- For testing check [docs/test](./docs/test.md)

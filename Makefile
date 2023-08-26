@@ -23,6 +23,12 @@ launch_be: build_be
 launch_fe: build_fe
 	$(MAKE) execute path=fe command=preview
 
+test_be:
+	$(MAKE) execute path=be command=test
+
+test_fe:
+	$(MAKE) execute path=fe command=test
+
 ## Docker workflow for the project
 
 compose:
