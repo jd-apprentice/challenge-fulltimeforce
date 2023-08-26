@@ -1,18 +1,19 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { GithubController } from './github.controller';
+import { GithubService } from './github.service';
+import { HttpService } from '@nestjs/axios';
 
 describe('GithubController', () => {
   let controller: GithubController;
+  let service: GithubService;
+  let httpService: HttpService;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [GithubController],
-    }).compile();
-
-    controller = module.get<GithubController>(GithubController);
-  });
+    service = new GithubService(httpService);
+    controller = new GithubController(service);
+  })
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
 });

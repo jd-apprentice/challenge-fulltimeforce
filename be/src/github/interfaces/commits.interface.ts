@@ -17,6 +17,11 @@ export interface ParsedResponse {
     avatarUrl: string;
 }
 
+export interface ErrorType {
+    message: string;
+    documentation_url: string;
+}
+
 interface Commit {
     author: Author;
     committer: Commiter;

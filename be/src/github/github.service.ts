@@ -1,5 +1,5 @@
 import { HttpService } from '@nestjs/axios';
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,8 +13,8 @@ export class GithubService {
         this.baseUrl = "https://api.github.com/repos/";
     }
 
-    public executeUseCase(url: string): Observable<ParsedResponse[]> {
-        return this.getCommits(url).pipe(
+    public executeUseCase(repository: string): Observable<ParsedResponse[]> {
+        return this.getCommits(repository).pipe(
             map(commits => commits.map(commit => ({
                 commit: {
                     author: commit.commit.author,
@@ -28,12 +28,17 @@ export class GithubService {
     }
 
 
-    private getCommits(url: string): Observable<GithubResponse[]> {
-        const commitUrl = this.baseUrl + url + "/commits";
-        return this.httpService.get(commitUrl).pipe(
-            map((response: AxiosResponse) => {
-                return response.data;
-            }),
-        );
+    private getCommits(repository: string): Observable<GithubResponse[]> {
+        const commitUrl = this.baseUrl + repository + "/commits";
+
+        try {
+            return this.httpService.get(commitUrl).pipe(
+                map((response: AxiosResponse) => {
+                    return response.data;
+                }),
+            );
+        } catch (error) {
+            throw new HttpException(error.message, error.status);
+        }
     }
 }
