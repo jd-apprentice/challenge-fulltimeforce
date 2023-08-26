@@ -1,3 +1,16 @@
+## What has been tested?
+
+#### Frontend
+
+- If the `App` component renders correctly
+- If the `App` component renders the `Home` component
+- If the `Home` component renders correctly his content
+
+#### Backend
+
+- If the public method `executeUseCase` from the `GithubService` class returns the correct data
+- If the private method `getCommits` handles the errors correctly
+
 ## To test the project either in Linux or in Windows
 
 - Make sure to have everything installed before testing the project
