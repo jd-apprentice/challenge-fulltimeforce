@@ -16,7 +16,13 @@
             "DOM",
             "DOM.Iterable"
         ],
+        "types": [
+            "node",
+            "jest",
+            "@testing-library/jest-dom"
+        ],
         "module": "ESNext",
+        "esModuleInterop": true,
         "skipLibCheck": true,
         "outDir": "dist",
         /* Bundler mode */
